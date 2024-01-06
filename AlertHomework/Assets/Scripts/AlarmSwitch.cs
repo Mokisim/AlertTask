@@ -19,6 +19,12 @@ public class AlarmSwitch : MonoBehaviour
     {
         _maxVolume = 1f;
         _audioSource.Play();
+
+        if(_activeCoroutine != null )
+        {
+            StopCoroutine(_activeCoroutine);
+        }
+
         _activeCoroutine = StartCoroutine(ChangeVolume());
     }
 
